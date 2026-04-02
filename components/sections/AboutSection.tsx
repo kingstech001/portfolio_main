@@ -149,8 +149,8 @@ export default function AboutSection() {
 
             <div className="flex flex-wrap gap-3 mt-2">
               <Button
-                href="/jordan-reeves-cv.pdf"
-                download="jordan-reeves-cv.pdf"
+                href=""
+                download=""
                 variant="secondary"
                 size="md"
               >
