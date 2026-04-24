@@ -148,12 +148,7 @@ export default function AboutSection() {
             </ul>
 
             <div className="flex flex-wrap gap-3 mt-2">
-              <Button
-                href=""
-                download=""
-                variant="secondary"
-                size="md"
-              >
+              <Button href="/Kingsley-Frontend-developer-resume.pdf" download="Kingsley-Frontend-developer-resume.pdf" variant="secondary" size="md">
                 Download CV
                 <svg
                   width="14"

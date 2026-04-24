@@ -13,7 +13,14 @@ export const metadata: Metadata = {
   },
   description:
     "Software developer specialising in React, Next.js, and scalable backend systems. Available for freelance projects and consulting.",
-  keywords: ["full-stack developer", "React", "Next.js", "TypeScript", "freelance developer", "portfolio"],
+  keywords: [
+    "full-stack developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "freelance developer",
+    "portfolio",
+  ],
   authors: [{ name: "Jordan Reeves", url: "https://jordanreeves.dev" }],
   creator: "Jordan Reeves",
   metadataBase: new URL("https://jordanreeves.dev"),

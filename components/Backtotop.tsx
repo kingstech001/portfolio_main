@@ -11,8 +11,7 @@ export default function BackToTop() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const scrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <button
@@ -29,9 +28,10 @@ export default function BackToTop() {
         hover:bg-[var(--accent)] hover:border-[var(--accent)]
         hover:-translate-y-1 hover:shadow-xl
         active:scale-95
-        ${visible
-          ? "opacity-100 translate-y-0 pointer-events-auto"
-          : "opacity-0 translate-y-4 pointer-events-none"
+        ${
+          visible
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 translate-y-4 pointer-events-none"
         }
       `}
     >

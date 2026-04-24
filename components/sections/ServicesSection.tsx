@@ -78,13 +78,10 @@ export default function ServicesSection() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header row */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-          <SectionHeading
-            eyebrow="Services"
-            heading="What I can do for you."
-          />
+          <SectionHeading eyebrow="Services" heading="What I can do for you." />
           <p className="text-[var(--ink-muted)] max-w-sm leading-relaxed lg:text-right text-sm">
-            I work best as a technical partner who understands the product, not just
-            a contractor executing tickets.
+            I work best as a technical partner who understands the product, not
+            just a contractor executing tickets.
           </p>
         </div>
 

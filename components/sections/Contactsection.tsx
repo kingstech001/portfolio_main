@@ -17,12 +17,12 @@ type FieldError = Partial<Record<keyof FormFields, string>>;
 type Status = "idle" | "submitting" | "success" | "error";
 
 const BUDGET_OPTIONS = [
-  { value: "",          label: "Select a range…" },
-  { value: "1k-5k",     label: "$1,000 - $5,000" },
-  { value: "5k-15k",   label: "$5,000 - $15,000" },
-  { value: "15k-50k",  label: "$15,000 - $50,000" },
+  { value: "", label: "Select a range…" },
+  { value: "1k-5k", label: "$1,000 - $5,000" },
+  { value: "5k-15k", label: "$5,000 - $15,000" },
+  { value: "15k-50k", label: "$15,000 - $50,000" },
   { value: "50k-plus", label: "$50,000+" },
-  { value: "tbd",      label: "Let's discuss" },
+  { value: "tbd", label: "Let's discuss" },
 ];
 
 const CONTACT_LINKS = [
@@ -31,9 +31,25 @@ const CONTACT_LINKS = [
     value: "mamahkingsleychukwuebuka@gmail.com",
     href: "mailto:mamahkingsleychukwuebuka@gmail.com",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-        <path d="M2.25 4.5h13.5v10.5H2.25V4.5z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
-        <path d="M2.25 4.5 9 10.125l6.75-5.625" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M2.25 4.5h13.5v10.5H2.25V4.5z"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M2.25 4.5 9 10.125l6.75-5.625"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -42,9 +58,28 @@ const CONTACT_LINKS = [
     value: "linkedin.com/in/kingsley-mamah-830342263",
     href: "https://www.linkedin.com/in/kingsley-mamah-830342263/",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-        <rect x="2" y="2" width="14" height="14" rx="3" stroke="currentColor" strokeWidth="1.3"/>
-        <path d="M5.5 7.5v5M5.5 5.5v.01M8.5 12.5v-3a1.5 1.5 0 013 0v3M8.5 9.5v3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        aria-hidden="true"
+      >
+        <rect
+          x="2"
+          y="2"
+          width="14"
+          height="14"
+          rx="3"
+          stroke="currentColor"
+          strokeWidth="1.3"
+        />
+        <path
+          d="M5.5 7.5v5M5.5 5.5v.01M8.5 12.5v-3a1.5 1.5 0 013 0v3M8.5 9.5v3"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -53,9 +88,28 @@ const CONTACT_LINKS = [
     value: "cal.com/kingstech",
     href: "https://cal.com/kingstech",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-        <rect x="2.25" y="3" width="13.5" height="12.75" rx="2" stroke="currentColor" strokeWidth="1.3"/>
-        <path d="M2.25 7.5h13.5M6 1.5v3M12 1.5v3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        aria-hidden="true"
+      >
+        <rect
+          x="2.25"
+          y="3"
+          width="13.5"
+          height="12.75"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.3"
+        />
+        <path
+          d="M2.25 7.5h13.5M6 1.5v3M12 1.5v3"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -80,8 +134,7 @@ function validate(fields: FormFields): FieldError {
 const inputBase =
   "w-full bg-[var(--cream)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] outline-none transition-all duration-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)]";
 
-const inputError =
-  "border-red-400 focus:border-red-400 focus:ring-red-100";
+const inputError = "border-red-400 focus:border-red-400 focus:ring-red-100";
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
@@ -103,9 +156,11 @@ export default function ContactSection() {
     budget: "",
     message: "",
   });
-  const [errors, setErrors]   = useState<FieldError>({});
-  const [status, setStatus]   = useState<Status>("idle");
-  const [touched, setTouched] = useState<Partial<Record<keyof FormFields, boolean>>>({});
+  const [errors, setErrors] = useState<FieldError>({});
+  const [status, setStatus] = useState<Status>("idle");
+  const [touched, setTouched] = useState<
+    Partial<Record<keyof FormFields, boolean>>
+  >({});
 
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -118,11 +173,16 @@ export default function ContactSection() {
     }
   }
 
-  function handleBlur(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleBlur(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) {
     const { name } = e.target;
     setTouched((prev) => ({ ...prev, [name]: true }));
     const fieldErrors = validate(fields);
-    setErrors((prev) => ({ ...prev, [name]: fieldErrors[name as keyof FormFields] }));
+    setErrors((prev) => ({
+      ...prev,
+      [name]: fieldErrors[name as keyof FormFields],
+    }));
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -131,7 +191,13 @@ export default function ContactSection() {
     // Validate all
     const allErrors = validate(fields);
     setErrors(allErrors);
-    setTouched({ name: true, email: true, message: true, budget: true, company: true });
+    setTouched({
+      name: true,
+      email: true,
+      message: true,
+      budget: true,
+      company: true,
+    });
 
     if (Object.keys(allErrors).length > 0) return;
 
@@ -156,20 +222,41 @@ export default function ContactSection() {
       >
         <div className="max-w-xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center gap-6">
           <div className="w-16 h-16 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/20 flex items-center justify-center">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <path d="M6 14.5l5.5 5.5L22 9" stroke="var(--green)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 14.5l5.5 5.5L22 9"
+                stroke="var(--green)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="font-display text-4xl text-[var(--ink)]">Message sent.</h2>
+            <h2 className="font-display text-4xl text-[var(--ink)]">
+              Message sent.
+            </h2>
             <p className="text-[var(--ink-muted)] text-base">
-              Thanks for reaching out! I&apos;ll get back to you within 1-2 business days.
+              Thanks for reaching out! I&apos;ll get back to you within 1-2
+              business days.
             </p>
           </div>
           <button
             onClick={() => {
               setStatus("idle");
-              setFields({ name: "", email: "", company: "", budget: "", message: "" });
+              setFields({
+                name: "",
+                email: "",
+                company: "",
+                budget: "",
+                message: "",
+              });
               setTouched({});
               setErrors({});
             }}
@@ -192,13 +279,15 @@ export default function ContactSection() {
       {/* Decorative ink background blob */}
       <div
         className="pointer-events-none absolute -left-32 bottom-0 w-96 h-96 rounded-full opacity-[0.04]"
-        style={{ background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
+        }}
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 relative z-10">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 xl:gap-20 items-start">
-
           {/* ── Left column ──────────────────────────────────────── */}
           <div className="flex flex-col gap-10">
             <SectionHeading
@@ -208,13 +297,21 @@ export default function ContactSection() {
             />
 
             {/* Contact links */}
-            <ul className="flex flex-col gap-3" role="list" aria-label="Contact options">
+            <ul
+              className="flex flex-col gap-3"
+              role="list"
+              aria-label="Contact options"
+            >
               {CONTACT_LINKS.map(({ label, value, href, icon }) => (
                 <li key={href}>
                   <a
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    rel={
+                      href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="flex items-center gap-4 p-4 rounded-xl border border-[var(--border)] bg-[var(--cream)] hover:border-[var(--accent)] hover:bg-[var(--cream-dark)] transition-all duration-200 group"
                   >
                     <span className="w-9 h-9 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center text-[var(--ink-muted)] group-hover:border-[var(--accent)] group-hover:text-[var(--accent)] transition-all duration-200 shrink-0">
@@ -228,7 +325,10 @@ export default function ContactSection() {
                         {value}
                       </p>
                     </div>
-                    <span className="ml-auto text-[var(--ink-faint)] group-hover:text-[var(--accent)] transition-colors" aria-hidden="true">
+                    <span
+                      className="ml-auto text-[var(--ink-faint)] group-hover:text-[var(--accent)] transition-colors"
+                      aria-hidden="true"
+                    >
                       →
                     </span>
                   </a>
@@ -244,9 +344,12 @@ export default function ContactSection() {
                 aria-hidden="true"
               />
               <p className="text-sm text-[var(--ink-muted)] leading-relaxed">
-                <span className="font-medium text-[var(--green)]">Currently available</span> for new
-                projects starting{" "}
-                <span className="text-[var(--ink)]">immediately</span>. Typical response time is{" "}
+                <span className="font-medium text-[var(--green)]">
+                  Currently available
+                </span>{" "}
+                for new projects starting{" "}
+                <span className="text-[var(--ink)]">immediately</span>. Typical
+                response time is{" "}
                 <span className="text-[var(--ink)]">under 24 hours</span>.
               </p>
             </div>
@@ -266,7 +369,10 @@ export default function ContactSection() {
                   htmlFor={`${uid}-name`}
                   className="text-[0.65rem] font-mono-var tracking-[0.16em] uppercase text-[var(--ink-muted)]"
                 >
-                  Name <span className="text-[var(--accent)]" aria-hidden="true">*</span>
+                  Name{" "}
+                  <span className="text-[var(--accent)]" aria-hidden="true">
+                    *
+                  </span>
                 </label>
                 <input
                   id={`${uid}-name`}
@@ -279,7 +385,9 @@ export default function ContactSection() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   aria-invalid={!!errors.name}
-                  aria-describedby={errors.name ? `${uid}-name-error` : undefined}
+                  aria-describedby={
+                    errors.name ? `${uid}-name-error` : undefined
+                  }
                   className={`${inputBase} ${errors.name ? inputError : ""}`}
                 />
                 <FieldError message={errors.name} />
@@ -290,7 +398,10 @@ export default function ContactSection() {
                   htmlFor={`${uid}-email`}
                   className="text-[0.65rem] font-mono-var tracking-[0.16em] uppercase text-[var(--ink-muted)]"
                 >
-                  Email <span className="text-[var(--accent)]" aria-hidden="true">*</span>
+                  Email{" "}
+                  <span className="text-[var(--accent)]" aria-hidden="true">
+                    *
+                  </span>
                 </label>
                 <input
                   id={`${uid}-email`}
@@ -303,7 +414,9 @@ export default function ContactSection() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   aria-invalid={!!errors.email}
-                  aria-describedby={errors.email ? `${uid}-email-error` : undefined}
+                  aria-describedby={
+                    errors.email ? `${uid}-email-error` : undefined
+                  }
                   className={`${inputBase} ${errors.email ? inputError : ""}`}
                 />
                 <FieldError message={errors.email} />
@@ -317,7 +430,8 @@ export default function ContactSection() {
                   htmlFor={`${uid}-company`}
                   className="text-[0.65rem] font-mono-var tracking-[0.16em] uppercase text-[var(--ink-muted)]"
                 >
-                  Company <span className="text-[var(--ink-faint)]">(optional)</span>
+                  Company{" "}
+                  <span className="text-[var(--ink-faint)]">(optional)</span>
                 </label>
                 <input
                   id={`${uid}-company`}
@@ -360,7 +474,10 @@ export default function ContactSection() {
                 htmlFor={`${uid}-message`}
                 className="text-[0.65rem] font-mono-var tracking-[0.16em] uppercase text-[var(--ink-muted)]"
               >
-                Message <span className="text-[var(--accent)]" aria-hidden="true">*</span>
+                Message{" "}
+                <span className="text-[var(--accent)]" aria-hidden="true">
+                  *
+                </span>
               </label>
               <textarea
                 id={`${uid}-message`}
@@ -372,7 +489,9 @@ export default function ContactSection() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 aria-invalid={!!errors.message}
-                aria-describedby={errors.message ? `${uid}-message-error` : undefined}
+                aria-describedby={
+                  errors.message ? `${uid}-message-error` : undefined
+                }
                 className={`${inputBase} resize-none leading-relaxed ${errors.message ? inputError : ""}`}
               />
               <div className="flex items-start justify-between">
@@ -419,7 +538,9 @@ export default function ContactSection() {
                       aria-hidden="true"
                     >
                       <circle
-                        cx="12" cy="12" r="10"
+                        cx="12"
+                        cy="12"
+                        r="10"
                         stroke="currentColor"
                         strokeWidth="3"
                         className="opacity-25"
@@ -443,7 +564,6 @@ export default function ContactSection() {
               </p>
             </div>
           </form>
-
         </div>
       </div>
     </section>

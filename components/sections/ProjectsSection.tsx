@@ -8,15 +8,18 @@ import Button from "@/components/ui/Button";
 /* ── Status badge ─────────────────────────────────────────────────────── */
 function StatusBadge({ status }: { status: Project["status"] }) {
   const config = {
-    live:        { label: "Live",        variant: "green" as const },
+    live: { label: "Live", variant: "green" as const },
     "in-progress": { label: "In Progress", variant: "gold" as const },
-    archived:    { label: "Archived",    variant: "default" as const },
+    archived: { label: "Archived", variant: "default" as const },
   };
   const { label, variant } = config[status];
   return (
     <Badge variant={variant}>
       {status === "live" && (
-        <span className="block w-1.5 h-1.5 rounded-full bg-[var(--green)] mr-1" aria-hidden="true" />
+        <span
+          className="block w-1.5 h-1.5 rounded-full bg-[var(--green)] mr-1"
+          aria-hidden="true"
+        />
       )}
       {label}
     </Badge>
@@ -57,7 +60,9 @@ function FeaturedCard({ project }: { project: Project }) {
         {/* Meta row */}
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <StatusBadge status={project.status} />
-          <span className="font-mono-var text-xs text-[var(--ink-faint)]">{project.year}</span>
+          <span className="font-mono-var text-xs text-[var(--ink-faint)]">
+            {project.year}
+          </span>
         </div>
 
         <div className="flex flex-col gap-3 flex-1">
@@ -75,7 +80,9 @@ function FeaturedCard({ project }: { project: Project }) {
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
-            <span key={tag} className="tag">{tag}</span>
+            <span key={tag} className="tag">
+              {tag}
+            </span>
           ))}
         </div>
 
@@ -137,7 +144,9 @@ function ProjectCard({ project }: { project: Project }) {
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5">
           {project.tags.slice(0, 4).map((tag) => (
-            <span key={tag} className="tag">{tag}</span>
+            <span key={tag} className="tag">
+              {tag}
+            </span>
           ))}
           {project.tags.length > 4 && (
             <span className="tag">+{project.tags.length - 4}</span>

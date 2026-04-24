@@ -5,7 +5,10 @@ import SectionHeading from "@/components/ui/SectionHeading";
 /* ── Star rating ─────────────────────────────────────────────────────── */
 function Stars({ count }: { count: number }) {
   return (
-    <span className="flex items-center gap-0.5" aria-label={`${count} out of 5 stars`}>
+    <span
+      className="flex items-center gap-0.5"
+      aria-label={`${count} out of 5 stars`}
+    >
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
@@ -13,7 +16,9 @@ function Stars({ count }: { count: number }) {
           height="12"
           viewBox="0 0 12 12"
           aria-hidden="true"
-          className={i < count ? "text-[var(--accent)]" : "text-[var(--border-dark)]"}
+          className={
+            i < count ? "text-[var(--accent)]" : "text-[var(--border-dark)]"
+          }
         >
           <path
             d="M6 1l1.236 2.506L10 3.938l-2 1.949.472 2.752L6 7.25l-2.472 1.39L4 5.887 2 3.938l2.764-.432L6 1z"

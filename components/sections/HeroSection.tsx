@@ -1,17 +1,25 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { MdOutlineDoubleArrow, MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
+import {
+  MdOutlineDoubleArrow,
+  MdOutlineKeyboardDoubleArrowDown,
+} from "react-icons/md";
 
 const STATS = [
-  { value: "3+",  label: "years experience" },
-  { value: "5+",  label: "projects shipped" },
+  { value: "3+", label: "years experience" },
+  { value: "5+", label: "projects shipped" },
   { value: "5+", label: "happy clients" },
   { value: "99%", label: "on-time delivery" },
 ] as const;
 
 const MARQUEE_ITEMS = [
-  "Next.js", "TypeScript", "React", "Python", "PostgreSQL",
-  "MongoDB", "Tailwind",
+  "Next.js",
+  "TypeScript",
+  "React",
+  "Python",
+  "PostgreSQL",
+  "MongoDB",
+  "Tailwind",
 ];
 
 export default function HeroSection() {
@@ -21,7 +29,6 @@ export default function HeroSection() {
       aria-label="Hero"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-
       {/* ── Background image (z-0) ────────────────────────────────── */}
       <Image
         src="/kings2.png"
@@ -44,25 +51,34 @@ export default function HeroSection() {
       {/* Top vignette */}
       <div
         className="absolute inset-x-0 top-0 h-40 z-20"
-        style={{ background: "linear-gradient(to bottom, rgba(10,9,7,0.5) 0%, transparent 100%)" }}
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,9,7,0.5) 0%, transparent 100%)",
+        }}
         aria-hidden="true"
       />
       {/* Bottom fade into next section */}
       <div
         className="absolute inset-x-0 bottom-0 h-48 z-20"
-        style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(10,9,7,0.55) 55%, var(--cream) 100%)" }}
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, rgba(10,9,7,0.55) 55%, var(--cream) 100%)",
+        }}
         aria-hidden="true"
       />
       {/* Accent radial glow */}
       <div
         className="pointer-events-none absolute top-1/3 right-[-6vw] w-[min(560px,55vw)] aspect-square rounded-full z-20 opacity-20"
-        style={{ background: "radial-gradient(circle, var(--accent) 0%, transparent 68%)", filter: "blur(40px)" }}
+        style={{
+          background:
+            "radial-gradient(circle, var(--accent) 0%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
         aria-hidden="true"
       />
 
       {/* ── All content lives at z-30+ so it's above every overlay ── */}
       <div className="relative z-30 max-w-6xl mx-auto px-5 sm:px-8 pt-36 pb-24 w-full">
-
         {/* Availability chip */}
         <div className="inline-flex items-center gap-2.5 mb-10 px-4 py-2 rounded-full border border-white/15 bg-white/8 backdrop-blur-sm text-sm text-white/75 animate-fade-up">
           <span
@@ -77,7 +93,9 @@ export default function HeroSection() {
         <h1 className="font-display text-[clamp(3rem,8vw,7rem)] leading-[1.03] tracking-tight text-white max-w-4xl animate-fade-up delay-75">
           I build software
           <br />
-          <em className="not-italic text-[var(--accent-warm)]">people love</em>{" "}
+          <em className="not-italic text-[var(--accent-warm)]">
+            people love
+          </em>{" "}
           to use.
         </h1>
 
@@ -85,8 +103,8 @@ export default function HeroSection() {
         <p className="mt-7 text-lg sm:text-xl text-white/60 max-w-xl leading-relaxed animate-fade-up delay-150">
           Hi, I&apos;m{" "}
           <strong className="font-medium text-white">Kings Tech</strong> — a
-          software developer who cares about clean architecture, fast interfaces, and
-          products that actually ship.
+          software developer who cares about clean architecture, fast
+          interfaces, and products that actually ship.
         </p>
 
         {/* CTAs */}
@@ -131,12 +149,13 @@ export default function HeroSection() {
               className="flex items-center gap-8 font-mono-var text-xs tracking-widest uppercase text-white/80"
             >
               {item}
-              <span className="text-[var(--accent-warm)] text-base leading-none">·</span>
+              <span className="text-[var(--accent-warm)] text-base leading-none">
+                ·
+              </span>
             </span>
           ))}
         </div>
       </div>
-
     </section>
   );
 }

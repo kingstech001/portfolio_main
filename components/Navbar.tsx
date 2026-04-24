@@ -8,9 +8,9 @@ import { LuSparkles } from "react-icons/lu";
 import { FaUserSecret } from "react-icons/fa";
 
 const NAV_LINKS = [
-  { label: "About",    href: "#about", icons: <FaUserSecret /> },
-  { label: "Skills",  href: "#stack", icons: <LuSparkles />},
-  { label: "Projects", href: "#projects", icons: <IoIosFolderOpen/> },
+  { label: "About", href: "#about", icons: <FaUserSecret /> },
+  { label: "Skills", href: "#stack", icons: <LuSparkles /> },
+  { label: "Projects", href: "#projects", icons: <IoIosFolderOpen /> },
 ] as const;
 
 export default function Navbar() {
@@ -27,7 +27,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
-    const handler = () => { if (mq.matches) closeMenu(); };
+    const handler = () => {
+      if (mq.matches) closeMenu();
+    };
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, [closeMenu]);
@@ -46,7 +48,10 @@ export default function Navbar() {
       <header
         role="banner"
         className="fixed top-0 inset-x-0 z-50 flex justify-center pointer-events-none"
-        style={{ paddingTop: scrolled ? "0.75rem" : "1.25rem", transition: "padding 0.35s cubic-bezier(0.22,1,0.36,1)" }}
+        style={{
+          paddingTop: scrolled ? "0.75rem" : "1.25rem",
+          transition: "padding 0.35s cubic-bezier(0.22,1,0.36,1)",
+        }}
       >
         {/* ── The pill ──────────────────────────────────────────────────── */}
         <div
@@ -54,9 +59,10 @@ export default function Navbar() {
             pointer-events-auto w-full mx-4 sm:mx-8 max-w-6xl
             rounded-2xl border
             transition-all duration-350
-            ${scrolled
-              ? "border-[var(--border-dark)] shadow-[0_8px_32px_rgba(26,24,20,0.12),0_1px_0_rgba(255,255,255,0.6)_inset]"
-              : "border-[var(--border)] shadow-[0_2px_12px_rgba(26,24,20,0.06)]"
+            ${
+              scrolled
+                ? "border-[var(--border-dark)] shadow-[0_8px_32px_rgba(26,24,20,0.12),0_1px_0_rgba(255,255,255,0.6)_inset]"
+                : "border-[var(--border)] shadow-[0_2px_12px_rgba(26,24,20,0.06)]"
             }
           `}
           style={{
@@ -82,7 +88,10 @@ export default function Navbar() {
             </Link>
 
             {/* ── Desktop centre links ─────────────────────────────────── */}
-            <ul className="hidden md:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2" role="list">
+            <ul
+              className="hidden md:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2"
+              role="list"
+            >
               {NAV_LINKS.map(({ label, href, icons }) => (
                 <li key={href}>
                   <Link
@@ -90,7 +99,9 @@ export default function Navbar() {
                     className="flex items-center relative px-3.5 py-1.5 text-sm font-medium text-[var(--ink-muted)] hover:text-[var(--ink)] rounded-xl transition-colors duration-200 group"
                   >
                     {icons && (
-                      <span className="relative z-50 mr-2 text-xl">{icons}</span>
+                      <span className="relative z-50 mr-2 text-xl">
+                        {icons}
+                      </span>
                     )}
                     {/* Hover pill bg */}
                     <span
@@ -106,16 +117,19 @@ export default function Navbar() {
             {/* ── Desktop right CTA ────────────────────────────────────── */}
             <div className="hidden md:flex items-center gap-2 shrink-0">
               <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] link-underline transition-colors"
-            >
-              CV
-            </a>
+                href="/Kingsley-Frontend-developer-resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[var(--ink-muted)] hover:text-[var(--ink)] link-underline transition-colors"
+              >
+                CV
+              </a>
 
               {/* Divider */}
-              <span className="block w-px h-4 bg-[var(--border-dark)] opacity-60" aria-hidden="true" />
+              <span
+                className="block w-px h-4 bg-[var(--border-dark)] opacity-60"
+                aria-hidden="true"
+              />
 
               <Button href="#contact" size="sm" variant="primary">
                 Hire me
@@ -130,9 +144,15 @@ export default function Navbar() {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
             >
-              <span className={`block mx-auto w-4.5 h-[1.5px] bg-[var(--ink)] origin-center transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.25px]" : ""}`} />
-              <span className={`block mx-auto w-4.5 h-[1.5px] bg-[var(--ink)] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
-              <span className={`block mx-auto w-4.5 h-[1.5px] bg-[var(--ink)] origin-center transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.25px]" : ""}`} />
+              <span
+                className={`block mx-auto w-4.5 h-[1.5px] bg-[var(--ink)] origin-center transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.25px]" : ""}`}
+              />
+              <span
+                className={`block mx-auto w-4.5 h-[1.5px] bg-[var(--ink)] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`}
+              />
+              <span
+                className={`block mx-auto w-4.5 h-[1.5px] bg-[var(--ink)] origin-center transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.25px]" : ""}`}
+              />
             </button>
           </nav>
 
@@ -159,8 +179,16 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <div className="mt-1 pt-2 border-t border-[var(--border)]" onClick={closeMenu}>
-                <Button href="#contact" size="md" variant="primary" className="w-full">
+              <div
+                className="mt-1 pt-2 border-t border-[var(--border)]"
+                onClick={closeMenu}
+              >
+                <Button
+                  href="#contact"
+                  size="md"
+                  variant="primary"
+                  className="w-full"
+                >
                   Hire me
                 </Button>
               </div>

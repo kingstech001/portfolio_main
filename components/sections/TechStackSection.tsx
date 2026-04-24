@@ -8,45 +8,45 @@ const CATEGORIES: Category[] = [
     label: "Frontend",
     color: "#c9622f",
     skills: [
-      { name: "React",          level: 3 },
-      { name: "Next.js",        level: 3 },
-      { name: "TypeScript",     level: 3 },
-      { name: "Tailwind CSS",   level: 3 },
-      { name: "Framer Motion",  level: 3 },
-      {name: "shadcn/ui",      level: 3 },
-      { name: "Zustand",        level: 2 },
+      { name: "React", level: 3 },
+      { name: "Next.js", level: 3 },
+      { name: "TypeScript", level: 3 },
+      { name: "Tailwind CSS", level: 3 },
+      { name: "Framer Motion", level: 3 },
+      { name: "shadcn/ui", level: 3 },
+      { name: "Zustand", level: 2 },
     ],
   },
   {
     label: "Backend",
     color: "#b89a5a",
     skills: [
-      { name: "Python",        level: 2 },
-      { name: "Next.js App Router",             level: 3 },
-      { name: "tRPC",           level: 2 },
-      { name: "REST APIs",      level: 2 },
-      { name: "WebSockets",     level: 1 }, 
+      { name: "Python", level: 2 },
+      { name: "Next.js App Router", level: 3 },
+      { name: "tRPC", level: 2 },
+      { name: "REST APIs", level: 2 },
+      { name: "WebSockets", level: 1 },
     ],
   },
   {
     label: "Data",
     color: "#3d7a56",
     skills: [
-      { name: "PostgreSQL",     level: 3 },
-      { name: "Redis",          level: 2 },
-      { name: "Prisma",         level: 3 },
-      { name: "Drizzle ORM",    level: 3 },
-      { name: "MongoDB",        level: 2 },
-      { name: "ClickHouse",     level: 1 },
-      { name: "SQLite",         level: 2 },
+      { name: "PostgreSQL", level: 3 },
+      { name: "Redis", level: 2 },
+      { name: "Prisma", level: 3 },
+      { name: "Drizzle ORM", level: 3 },
+      { name: "MongoDB", level: 2 },
+      { name: "ClickHouse", level: 1 },
+      { name: "SQLite", level: 2 },
     ],
   },
   {
     label: "Infra & Tooling",
     color: "#7c5cbf",
     skills: [
-      { name: "Vercel /Netlify",  level: 3 },
-      { name: "GitHub Actions",   level: 3 },
+      { name: "Vercel /Netlify", level: 3 },
+      { name: "GitHub Actions", level: 3 },
     ],
   },
 ];
@@ -65,13 +65,9 @@ export default function TechStackSection() {
       className="section-padding bg-[var(--cream-dark)] relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
-          <SectionHeading
-            eyebrow="Tech stack"
-            heading="Tools of the trade."
-          />
+          <SectionHeading eyebrow="Tech stack" heading="Tools of the trade." />
           {/* Legend */}
           <div className="flex items-center gap-5 shrink-0">
             {([3, 2, 1] as const).map((lvl) => (
@@ -81,12 +77,19 @@ export default function TechStackSection() {
                     <span
                       key={dot}
                       className="block w-1.5 h-1.5 rounded-full"
-                      style={{ background: dot <= lvl ? "var(--ink-muted)" : "var(--border-dark)" }}
+                      style={{
+                        background:
+                          dot <= lvl
+                            ? "var(--ink-muted)"
+                            : "var(--border-dark)",
+                      }}
                       aria-hidden="true"
                     />
                   ))}
                 </div>
-                <span className="text-xs text-[var(--ink-faint)] font-mono-var">{LEVEL_LABELS[lvl]}</span>
+                <span className="text-xs text-[var(--ink-faint)] font-mono-var">
+                  {LEVEL_LABELS[lvl]}
+                </span>
               </div>
             ))}
           </div>
@@ -114,7 +117,10 @@ export default function TechStackSection() {
               {/* Skill list */}
               <ul className="flex flex-col gap-3" role="list">
                 {cat.skills.map(({ name, level }) => (
-                  <li key={name} className="flex items-center justify-between gap-2">
+                  <li
+                    key={name}
+                    className="flex items-center justify-between gap-2"
+                  >
                     <span className="text-sm text-[var(--ink)]">{name}</span>
                     <span
                       className="flex gap-0.5 shrink-0"
@@ -125,7 +131,8 @@ export default function TechStackSection() {
                           key={dot}
                           className="block w-1.5 h-1.5 rounded-full transition-colors"
                           style={{
-                            background: dot <= level ? cat.color : "var(--border-dark)",
+                            background:
+                              dot <= level ? cat.color : "var(--border-dark)",
                           }}
                           aria-hidden="true"
                         />

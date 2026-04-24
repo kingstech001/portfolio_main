@@ -69,7 +69,6 @@ export default function ProcessSection() {
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24 gap-12">
-
           {/* Sticky left panel */}
           <div className="lg:sticky lg:top-28 lg:self-start lg:w-72 xl:w-80 shrink-0">
             <SectionHeading
@@ -80,7 +79,10 @@ export default function ProcessSection() {
           </div>
 
           {/* Steps */}
-          <ol className="flex-1 flex flex-col divide-y divide-[var(--border)]" role="list">
+          <ol
+            className="flex-1 flex flex-col divide-y divide-[var(--border)]"
+            role="list"
+          >
             {STEPS.map((step, i) => (
               <li
                 key={step.number}
@@ -117,7 +119,6 @@ export default function ProcessSection() {
               </li>
             ))}
           </ol>
-
         </div>
       </div>
     </section>
